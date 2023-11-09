@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "979685410658",
+    "project_id": "gimpaskillconnect",
+    "storage_bucket": "gimpaskillconnect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979685410658:android:9fd2bd94d626db34cc0e3b",
+        "android_client_info": {
+          "package_name": "com.mycompany.gimpaskillconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979685410658-agthn45ikpsp632p4t2tgnrotn79v2u8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.gimpaskillconnect",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "979685410658-4j56th10eel9op3cshs6li59ajsh3le6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPcjvcJN-sV05tL5_XBDHqGVIXh1V4MSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979685410658-4j56th10eel9op3cshs6li59ajsh3le6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "979685410658-8b4brhugsh52me4dcn0fh669mookcqqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.gimpaskillconnect"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
