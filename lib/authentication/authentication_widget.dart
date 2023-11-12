@@ -68,33 +68,20 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 140.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(16.0),
-                      topLeft: Radius.circular(0.0),
-                      topRight: Radius.circular(0.0),
-                    ),
-                  ),
-                  alignment: AlignmentDirectional(-1.00, 0.00),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(22.0, 50.0, 0.0, 0.0),
-                    child: Text(
-                      'GIMPA SKILL CONNECT',
-                      style: FlutterFlowTheme.of(context).displaySmall,
-                    ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/GIMPA_(Ghana_Institute_of_Management_and_Public_Administration)_logo.jpg',
+                    width: 300.0,
+                    height: 297.0,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(32.0, 200.0, 32.0, 32.0),
+                        EdgeInsetsDirectional.fromSTEB(32.0, 20.0, 32.0, 32.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -244,7 +244,7 @@ class _ProfilepageWidgetState extends State<ProfilepageWidget>
                   size: 30.0,
                 ),
                 onPressed: () async {
-                  context.pop();
+                  context.safePop();
                 },
               ),
             ),
@@ -279,14 +279,14 @@ class _ProfilepageWidgetState extends State<ProfilepageWidget>
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Text(
-                  'Andrea Davis',
+                  currentUserDisplayName,
                   style: FlutterFlowTheme.of(context).headlineSmall,
                 ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
-                  'andrea@domainname.com',
+                  currentUserEmail,
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).secondary,

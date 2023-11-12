@@ -75,15 +75,20 @@ class _LoginpageWidgetState extends State<LoginpageWidget> {
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     alignment: AlignmentDirectional(0.00, 0.00),
-                    child: Text(
-                      'GIMPA SKILL CONNECT',
-                      style: FlutterFlowTheme.of(context).displaySmall,
-                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/GIMPA_(Ghana_Institute_of_Management_and_Public_Administration)_logo.jpg',
+                    width: 204.0,
+                    height: 200.0,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 200.0, 12.0, 12.0),
+                      EdgeInsetsDirectional.fromSTEB(12.0, 20.0, 12.0, 12.0),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(

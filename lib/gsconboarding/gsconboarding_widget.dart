@@ -1,10 +1,11 @@
+import '/flutter_flow/flutter_flow_rive_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:rive/rive.dart' hide LinearGradient;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'gsconboarding_model.dart';
 export 'gsconboarding_model.dart';
@@ -57,13 +58,22 @@ class _GsconboardingWidgetState extends State<GsconboardingWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Lottie.asset(
-                'assets/lottie_animations/Animation_-_1699514133244.json',
-                width: 243.0,
-                height: 423.0,
-                fit: BoxFit.cover,
-                repeat: false,
-                animate: false,
+              Container(
+                width: 339.0,
+                height: 489.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: Container(
+                  width: 120.0,
+                  height: 150.0,
+                  child: RiveAnimation.asset(
+                    'assets/rive_animations/mixing_animations.riv',
+                    artboard: 'New Artboard',
+                    fit: BoxFit.contain,
+                    controllers: _model.riveAnimationControllers,
+                  ),
+                ),
               ),
               Padding(
                 padding:
