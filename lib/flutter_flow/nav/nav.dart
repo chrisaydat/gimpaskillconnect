@@ -126,6 +126,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'profilepage')
               : ProfilepageWidget(),
+        ),
+        FFRoute(
+          name: 'tutorpage',
+          path: '/tutorpage',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'tutorpage')
+              : TutorpageWidget(),
+        ),
+        FFRoute(
+          name: 'internshipapplicationpage',
+          path: '/internshipapplicationpage',
+          builder: (context, params) => InternshipapplicationpageWidget(),
+        ),
+        FFRoute(
+          name: 'rewardsummary',
+          path: '/rewardsummary',
+          builder: (context, params) => RewardsummaryWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

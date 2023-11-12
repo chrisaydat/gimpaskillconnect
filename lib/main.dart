@@ -11,6 +11,7 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
@@ -83,11 +84,37 @@ class _MyAppState extends State<MyApp> {
       ],
       theme: ThemeData(
         brightness: Brightness.light,
-        scrollbarTheme: ScrollbarThemeData(),
+        scrollbarTheme: ScrollbarThemeData(
+          thumbVisibility: MaterialStateProperty.all(true),
+          trackVisibility: MaterialStateProperty.all(true),
+          interactive: true,
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.dragged)) {
+              return Color(4292928487);
+            }
+            if (states.contains(MaterialState.hovered)) {
+              return Color(4292928487);
+            }
+            return Color(4292928487);
+          }),
+        ),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        scrollbarTheme: ScrollbarThemeData(),
+        scrollbarTheme: ScrollbarThemeData(
+          thumbVisibility: MaterialStateProperty.all(true),
+          trackVisibility: MaterialStateProperty.all(true),
+          interactive: true,
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.dragged)) {
+              return Color(4280692020);
+            }
+            if (states.contains(MaterialState.hovered)) {
+              return Color(4280692020);
+            }
+            return Color(4280692020);
+          }),
+        ),
       ),
       themeMode: _themeMode,
       routerConfig: _router,
@@ -123,6 +150,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'homepage': HomepageWidget(),
       'internishipsandvolunteeringpage':
           InternishipsandvolunteeringpageWidget(),
+      'tutorpage': TutorpageWidget(),
       'profilepage': ProfilepageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -153,6 +181,14 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.interests,
+              size: 24.0,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(
+              FontAwesomeIcons.bookOpen,
               size: 24.0,
             ),
             label: 'Home',

@@ -1,14 +1,17 @@
-import '/flutter_flow/flutter_flow_ad_banner.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'homepage_widget.dart' show HomepageWidget;
+import 'rewardsummary_widget.dart' show RewardsummaryWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class HomepageModel extends FlutterFlowModel<HomepageWidget> {
+class RewardsummaryModel extends FlutterFlowModel<RewardsummaryWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
