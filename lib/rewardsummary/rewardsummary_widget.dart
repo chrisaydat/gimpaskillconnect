@@ -148,6 +148,8 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => RewardsummaryModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -295,7 +297,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 12.0),
                                 child: Text(
-                                  '\$320k',
+                                  '¢8,150.56',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
@@ -307,7 +309,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                 ),
                               ),
                               Text(
-                                'Total Sales',
+                                'Total Earned',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
@@ -449,7 +451,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'List Item Title',
+                                        'First Quarter 2022',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge,
                                       ),
@@ -457,7 +459,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
-                                          'Secondary text',
+                                          'revenue sharing ',
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium,
                                         ),
@@ -466,7 +468,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                   ),
                                 ),
                                 Text(
-                                  '\$1.50',
+                                  '¢3900.98',
                                   textAlign: TextAlign.end,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall,
@@ -511,7 +513,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'List Item Title',
+                                        'Second Quarter 2022',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge,
                                       ),
@@ -519,7 +521,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
-                                          'Secondary text',
+                                          'revenue sharing ',
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium,
                                         ),
@@ -528,7 +530,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                   ),
                                 ),
                                 Text(
-                                  '\$1.50',
+                                  '¢2450.78',
                                   textAlign: TextAlign.end,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall,
@@ -573,7 +575,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'List Item Title',
+                                        'Third Quarter 2022',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge,
                                       ),
@@ -581,7 +583,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
-                                          'Secondary text',
+                                          'revenue sharing ',
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium,
                                         ),
@@ -590,7 +592,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                   ),
                                 ),
                                 Text(
-                                  '\$1.50',
+                                  '¢898.30',
                                   textAlign: TextAlign.end,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall,
@@ -635,7 +637,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'List Item Title',
+                                        'Fourth Quarter 2022',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyLarge,
                                       ),
@@ -643,7 +645,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
-                                          'Secondary text',
+                                          'revenue sharing ',
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium,
                                         ),
@@ -652,7 +654,7 @@ class _RewardsummaryWidgetState extends State<RewardsummaryWidget>
                                   ),
                                 ),
                                 Text(
-                                  '\$1.50',
+                                  '¢900.50',
                                   textAlign: TextAlign.end,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall,

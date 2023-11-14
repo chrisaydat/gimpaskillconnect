@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/paycomp_widget.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -27,6 +28,8 @@ class _TutorpageWidgetState extends State<TutorpageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TutorpageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -88,52 +91,79 @@ class _TutorpageWidgetState extends State<TutorpageWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 1.0),
-                      child: Container(
-                        width: double.infinity,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black,
-                              offset: Offset(0.0, 1.0),
-                            )
-                          ],
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 5.0, 16.0, 5.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'James Frimpong',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 5.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Data Warehousing',
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                '¢52.20',
-                                style: FlutterFlowTheme.of(context).titleLarge,
-                              ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return GestureDetector(
+                                onTap: () => _model.unfocusNode.canRequestFocus
+                                    ? FocusScope.of(context)
+                                        .requestFocus(_model.unfocusNode)
+                                    : FocusScope.of(context).unfocus(),
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: PaycompWidget(),
+                                ),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          height: 60.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black,
+                                offset: Offset(0.0, 1.0),
+                              )
                             ],
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 5.0, 16.0, 5.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'James Frimpong',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Text(
+                                        'Data Warehousing',
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  '¢52.20',
+                                  style:
+                                      FlutterFlowTheme.of(context).titleLarge,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -304,7 +334,9 @@ class _TutorpageWidgetState extends State<TutorpageWidget> {
                   child: FlutterFlowAdBanner(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 50.0,
-                    showsTestAd: true,
+                    showsTestAd: false,
+                    iOSAdUnitID: 'ca-app-pub-5639990569247557~3747934089',
+                    androidAdUnitID: 'ca-app-pub-5639990569247557~4699173233',
                   ),
                 ),
                 ListView(

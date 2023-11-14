@@ -200,6 +200,8 @@ class _ProfilepageWidgetState extends State<ProfilepageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -278,10 +280,13 @@ class _ProfilepageWidgetState extends State<ProfilepageWidget>
               ).animateOnPageLoad(animationsMap['cardOnPageLoadAnimation']!),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                child: Text(
-                  currentUserDisplayName,
-                  style: FlutterFlowTheme.of(context).headlineSmall,
-                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
+                child: AuthUserStreamWidget(
+                  builder: (context) => Text(
+                    currentUserDisplayName,
+                    style: FlutterFlowTheme.of(context).headlineSmall,
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation1']!),
+                ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),

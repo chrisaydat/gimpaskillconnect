@@ -1,9 +1,11 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'homepage_model.dart';
@@ -25,6 +27,8 @@ class _HomepageWidgetState extends State<HomepageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomepageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -52,6 +56,26 @@ class _HomepageWidgetState extends State<HomepageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).info,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            context.pushNamed(
+              'smartmatch',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.bottomToTop,
+                ),
+              },
+            );
+          },
+          backgroundColor: FlutterFlowTheme.of(context).secondary,
+          elevation: 10.0,
+          child: FaIcon(
+            FontAwesomeIcons.atom,
+            color: FlutterFlowTheme.of(context).info,
+            size: 24.0,
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(
@@ -136,115 +160,62 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'internshipapplicationpage',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.bottomToTop,
-                                  ),
-                                },
-                              );
-                            },
-                            child: ListTile(
-                              title: Text(
-                                'Google Internship',
-                                style: FlutterFlowTheme.of(context).titleLarge,
-                              ),
-                              subtitle: Text(
-                                'Software Engineering Internship',
-                                style: FlutterFlowTheme.of(context).labelMedium,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 20.0,
-                              ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              dense: false,
-                            ),
-                          ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'internshipapplicationpage',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.bottomToTop,
-                                  ),
-                                },
-                              );
-                            },
-                            child: ListTile(
-                              title: Text(
-                                'Amazon Internship',
-                                style: FlutterFlowTheme.of(context).titleLarge,
-                              ),
-                              subtitle: Text(
-                                'Subtitle goes here...',
-                                style: FlutterFlowTheme.of(context).labelMedium,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 20.0,
-                              ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              dense: false,
-                            ),
-                          ),
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'internshipapplicationpage',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.bottomToTop,
-                                  ),
-                                },
-                              );
-                            },
-                            child: ListTile(
-                              title: Text(
-                                'NCA',
-                                style: FlutterFlowTheme.of(context).titleLarge,
-                              ),
-                              subtitle: Text(
-                                'Volunteer Comms ',
-                                style: FlutterFlowTheme.of(context).labelMedium,
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                size: 20.0,
-                              ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              dense: false,
+                          Expanded(
+                            child: StreamBuilder<List<OpportunitiesRecord>>(
+                              stream: queryOpportunitiesRecord(),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<OpportunitiesRecord>
+                                    listViewOpportunitiesRecordList =
+                                    snapshot.data!;
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount:
+                                      listViewOpportunitiesRecordList.length,
+                                  itemBuilder: (context, listViewIndex) {
+                                    final listViewOpportunitiesRecord =
+                                        listViewOpportunitiesRecordList[
+                                            listViewIndex];
+                                    return ListTile(
+                                      title: Text(
+                                        listViewOpportunitiesRecord.title,
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge,
+                                      ),
+                                      subtitle: Text(
+                                        listViewOpportunitiesRecord.description,
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                      ),
+                                      trailing: Icon(
+                                        Icons.arrow_forward_ios,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 20.0,
+                                      ),
+                                      tileColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      dense: false,
+                                    );
+                                  },
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -264,7 +235,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                   child: FlutterFlowAdBanner(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 50.0,
-                    showsTestAd: true,
+                    showsTestAd: false,
+                    iOSAdUnitID: 'ca-app-pub-5639990569247557~3747934089',
+                    androidAdUnitID: 'ca-app-pub-5639990569247557~4699173233',
                   ),
                 ),
                 Align(
@@ -278,324 +251,65 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: StreamBuilder<List<NgoRecord>>(
+                              stream: queryNgoRecord(),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                        ),
+                                      ),
                                     ),
+                                  );
+                                }
+                                List<NgoRecord> listViewNgoRecordList =
+                                    snapshot.data!;
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: listViewNgoRecordList.length,
+                                  itemBuilder: (context, listViewIndex) {
+                                    final listViewNgoRecord =
+                                        listViewNgoRecordList[listViewIndex];
+                                    return ListTile(
+                                      title: Text(
+                                        listViewNgoRecord.ngoname,
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleLarge,
+                                      ),
+                                      subtitle: Text(
+                                        listViewNgoRecord.description,
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                      ),
+                                      trailing: Icon(
+                                        Icons.arrow_forward_ios,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 20.0,
+                                      ),
+                                      tileColor: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      dense: false,
+                                    );
                                   },
                                 );
                               },
-                              child: ListTile(
-                                title: Text(
-                                  'Ministry of Roads and Highways',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Traffic Mediator',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
                             ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                    ),
-                                  },
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  'NCA',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Comms ',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                    ),
-                                  },
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  'NCA',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Comms ',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                    ),
-                                  },
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  'NCA',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Comms ',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                    ),
-                                  },
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  'NCA',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Comms ',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                    ),
-                                  },
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  'NCA',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Comms ',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                    ),
-                                  },
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  'NCA',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Comms ',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'internshipapplicationpage',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.bottomToTop,
-                                    ),
-                                  },
-                                );
-                              },
-                              child: ListTile(
-                                title: Text(
-                                  'NCA',
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
-                                ),
-                                subtitle: Text(
-                                  'Volunteer Comms ',
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                ),
-                                trailing: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 20.0,
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

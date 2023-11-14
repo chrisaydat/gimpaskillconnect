@@ -11,3 +11,6 @@ export '/tutorpage/tutorpage_widget.dart' show TutorpageWidget;
 export '/internshipapplicationpage/internshipapplicationpage_widget.dart'
     show InternshipapplicationpageWidget;
 export '/rewardsummary/rewardsummary_widget.dart' show RewardsummaryWidget;
+export '/confettioverlay/confettioverlay_widget.dart'
+    show ConfettioverlayWidget;
+export '/smartmatch/smartmatch_widget.dart' show SmartmatchWidget;

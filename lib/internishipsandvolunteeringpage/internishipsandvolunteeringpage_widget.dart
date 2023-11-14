@@ -33,6 +33,8 @@ class _InternishipsandvolunteeringpageWidgetState
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -316,9 +318,9 @@ class _InternishipsandvolunteeringpageWidgetState
                   child: FlutterFlowAdBanner(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 50.0,
-                    showsTestAd: true,
+                    showsTestAd: false,
                     iOSAdUnitID: 'ca-app-pub-5639990569247557~3747934089',
-                    androidAdUnitID: 'ca-app-pub-5639990569247557/3364790707',
+                    androidAdUnitID: 'ca-app-pub-5639990569247557~4699173233',
                   ),
                 ),
                 Align(

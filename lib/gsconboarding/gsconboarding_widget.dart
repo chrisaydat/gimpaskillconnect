@@ -26,6 +26,8 @@ class _GsconboardingWidgetState extends State<GsconboardingWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GsconboardingModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

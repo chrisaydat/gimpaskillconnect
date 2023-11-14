@@ -110,6 +110,8 @@ class _Onboarding2WidgetState extends State<Onboarding2Widget>
   void initState() {
     super.initState();
     _model = createModel(context, () => Onboarding2Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
