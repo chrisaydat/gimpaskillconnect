@@ -11,7 +11,6 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
@@ -159,7 +158,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'homepage': HomepageWidget(),
       'internishipsandvolunteeringpage':
           InternishipsandvolunteeringpageWidget(),
-      'tutorpage': TutorpageWidget(),
       'profilepage': ProfilepageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -190,14 +188,6 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.interests,
-              size: 24.0,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.bookOpen,
               size: 24.0,
             ),
             label: 'Home',

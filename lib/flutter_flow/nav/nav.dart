@@ -129,26 +129,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : ProfilepageWidget(),
         ),
         FFRoute(
-          name: 'tutorpage',
-          path: '/tutorpage',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'tutorpage')
-              : TutorpageWidget(),
-        ),
-        FFRoute(
           name: 'internshipapplicationpage',
           path: '/internshipapplicationpage',
           builder: (context, params) => InternshipapplicationpageWidget(),
-        ),
-        FFRoute(
-          name: 'rewardsummary',
-          path: '/rewardsummary',
-          builder: (context, params) => RewardsummaryWidget(),
-        ),
-        FFRoute(
-          name: 'confettioverlay',
-          path: '/confettioverlay',
-          builder: (context, params) => ConfettioverlayWidget(),
         ),
         FFRoute(
           name: 'smartmatch',

@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -106,44 +107,11 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                   ),
                 ),
                 Text(
-                  'Welcome  Jane Doe',
+                  currentUserEmail,
                   style: FlutterFlowTheme.of(context).bodyLarge.override(
                         fontFamily: 'Readex Pro',
                         fontWeight: FontWeight.w800,
                       ),
-                ),
-                Text(
-                  'Your Points : 500',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed('rewardsummary');
-                    },
-                    text: 'View Rewards',
-                    options: FFButtonOptions(
-                      width: 200.0,
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).alternate,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                              ),
-                      elevation: 3.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                  ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.00, 0.00),
@@ -194,7 +162,7 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                             listViewIndex];
                                     return ListTile(
                                       title: Text(
-                                        listViewOpportunitiesRecord.title,
+                                        listViewOpportunitiesRecord.company,
                                         style: FlutterFlowTheme.of(context)
                                             .titleLarge,
                                       ),

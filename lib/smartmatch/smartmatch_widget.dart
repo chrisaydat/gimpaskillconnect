@@ -71,7 +71,7 @@ class _SmartmatchWidgetState extends State<SmartmatchWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1.00, 0.00),
+                alignment: AlignmentDirectional(0.00, 0.00),
                 child: Text(
                   'SmartMatch',
                   textAlign: TextAlign.start,
@@ -84,7 +84,7 @@ class _SmartmatchWidgetState extends State<SmartmatchWidget> {
                 style: FlutterFlowTheme.of(context).bodyLarge,
               ),
               ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(10.0),
                 child: Image.asset(
                   'assets/images/DALLE_2023-11-14_04.28.45_-_Create_a_cartoon-style_abstract_illustration_that_symbolizes_AI_job_matching._Visualize_playful_and_vibrant_shapes_that_intertwine,_with_cartoon-like_.png',
                   width: 425.0,

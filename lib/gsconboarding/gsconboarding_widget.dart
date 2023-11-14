@@ -67,12 +67,12 @@ class _GsconboardingWidgetState extends State<GsconboardingWidget> {
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
                 child: Container(
-                  width: 120.0,
-                  height: 150.0,
+                  width: 150.0,
+                  height: 130.0,
                   child: RiveAnimation.asset(
-                    'assets/rive_animations/mixing_animations.riv',
-                    artboard: 'New Artboard',
-                    fit: BoxFit.contain,
+                    'assets/rive_animations/5618-11027-inventory.riv',
+                    artboard: 'inventoryArtwork.psd',
+                    fit: BoxFit.cover,
                     controllers: _model.riveAnimationControllers,
                   ),
                 ),

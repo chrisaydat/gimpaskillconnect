@@ -15,7 +15,22 @@ class GsconboardingModel extends FlutterFlowModel<GsconboardingWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for RiveAnimation widget.
   final riveAnimationAnimationsList = [
-    'Beginner',
+    'idleOff',
+    'idle',
+    'potionMOScale',
+    'potionDefaultScale',
+    'swordMOScale',
+    'shieldMOScale',
+    'swordDefaultScale',
+    'shieldDefaultScale',
+    'mapMOScale',
+    'mapDefaultScale',
+    'in',
+    'out',
+    'default',
+    'bagClose',
+    'bagOpen',
+    'bagDefault',
   ];
   List<FlutterFlowRiveController> riveAnimationControllers = [];
 
@@ -25,6 +40,7 @@ class GsconboardingModel extends FlutterFlowModel<GsconboardingWidget> {
     riveAnimationAnimationsList.forEach((name) {
       riveAnimationControllers.add(FlutterFlowRiveController(
         name,
+        shouldLoop: true,
       ));
     });
   }
